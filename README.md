@@ -1,4 +1,4 @@
-# Very basic gRPC -> REST gateway
+# Very basic gRPC -> HTTP gateway
 
 An example of usage:
 ```
