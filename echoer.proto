@@ -1,0 +1,10 @@
+syntax = "proto3";
+package grpc.gateway.echoer;
+option go_package = "github.com/tarasmatsyk/grpc-gateway/echoer";
+message StringMessage {
+  string value = 1;
+}
+
+service Echoer {
+  rpc Echo(StringMessage) returns (StringMessage) {}
+}
