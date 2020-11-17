@@ -14,6 +14,7 @@ proto: $(PROTO_TARGETS)
 	protoc \
 		-I=$(CURDIR) \
 		-I=$(GOPATH)/pkg/mod \
+		-I=$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway/ \
 		--go_out . --go_opt paths=source_relative \
 		--go-grpc_out . --go-grpc_opt paths=source_relative \
 		--grpc-gateway_out . \

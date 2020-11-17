@@ -2,6 +2,7 @@ syntax = "proto3";
 package grpc.gateway.echoer;
 option go_package = "github.com/tarasmatsyk/grpc-gateway/echoer/proto";
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 message StringMessage {
   string value = 1;
@@ -15,3 +16,39 @@ service Echoer {
     };
   }
 }
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "A Bit of Everything";
+    version: "1.0";
+    contact: {
+      name: "gRPC-Gateway project";
+      url: "https://github.com/grpc-ecosystem/grpc-gateway";
+      email: "none@example.com";
+    };
+    license: {
+      name: "BSD 3-Clause License";
+      url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt";
+    };
+    extensions: {
+      key: "x-logo";
+      value {
+        url:     "/images/logo.svg";
+        altText: "Spider.com Logo";
+        href:    "https://example.com";
+      }
+    }
+  };
+  schemes: HTTP;
+  servers: [
+    {
+      url: "v1";
+    }
+  ];
+  tags: [
+    {
+      name: "intro";
+      description: "Description";
+    }
+  ]
+};
