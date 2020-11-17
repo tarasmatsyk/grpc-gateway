@@ -3,7 +3,7 @@
 export GOBIN := $(CURDIR)/bin
 export PATH := $(GOBIN):$(PATH)
 
-PROTO_SOURCES := $(shell find ./ -maxdepth 1 -type f -name '*.proto')
+PROTO_SOURCES := $(shell find ./proto/ -maxdepth 1 -type f -name '*.proto')
 PROTO_TARGETS := $(addsuffix .pb.go,$(basename $(PROTO_SOURCES)))
 
 all: proto
