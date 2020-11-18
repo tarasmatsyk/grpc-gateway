@@ -12,13 +12,13 @@ proto: $(PROTO_TARGETS)
 
 %.pb.go: gateway %.proto
 	protoc \
-		-I=$(CURDIR)/proto \
+		-I=$(CURDIR) \
 		-I=$(GOPATH)/pkg/mod \
-		--go_out ./proto --go_opt paths=source_relative \
-		--go-grpc_out ./proto --go-grpc_opt paths=source_relative \
-		--grpc-gateway_out ./proto \
-		--openapiv2_out ./proto --openapiv2_opt logtostderr=true \
-		--grpc-gateway_opt logtostderr=true \
+		--proto_path=./proto \
+		--go_out . --go_opt paths=source_relative \
+		--go-grpc_out . --go-grpc_opt paths=source_relative \
+		--grpc-gateway_out . \
+		--openapiv2_out . \
 		--grpc-gateway_opt paths=source_relative \
 		--grpc-gateway_opt generate_unbound_methods=true \
 		$(CURDIR)/$(*).proto

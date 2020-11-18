@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "echoer.proto",
+    "title": "proto/echoer.proto",
     "version": "version not set"
   },
   "consumes": [
