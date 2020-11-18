@@ -91,5 +91,5 @@ var _Echoer_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "echoer.proto",
+	Metadata: "echoer/echoer.proto",
 }

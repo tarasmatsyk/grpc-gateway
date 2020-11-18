@@ -8,7 +8,7 @@ import (
 	"net"
 	"net/http"
 
-	pr "gateway/proto"
+	pr "gateway/proto/echoer"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
