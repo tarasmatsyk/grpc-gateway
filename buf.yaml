@@ -3,3 +3,4 @@ build:
   roots:
     - proto
     - third_party/googleapis
+    - third_party/grpc-gateway

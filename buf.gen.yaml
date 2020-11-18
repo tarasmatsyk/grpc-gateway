@@ -10,4 +10,5 @@ plugins:
     out: ./proto
     opt: paths=source_relative,generate_unbound_methods=true
   - name: openapiv2
+    opt: allow_merge=true
     out: ./proto
