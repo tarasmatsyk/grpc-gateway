@@ -95,16 +95,16 @@
     }
   },
   "securityDefinitions": {
-    "bearer": {
+    "authKey": {
       "type": "apiKey",
-      "description": "Authentication token, prefixed by Bearer: Bearer \u003ctoken\u003e",
-      "name": "Authorization",
+      "description": "Authentication token",
+      "name": "X-API-Key",
       "in": "header"
     }
   },
   "security": [
     {
-      "bearer": []
+      "authKey": []
     }
   ]
 }
