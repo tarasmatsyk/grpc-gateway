@@ -12,15 +12,15 @@ proto: $(PROTO_TARGETS)
 
 %.pb.go: gateway %.proto
 	protoc \
-		-I=$(CURDIR) \
+		-I=$(CURDIR)/proto \
 		-I=$(GOPATH)/pkg/mod \
-		--go_out . --go_opt paths=source_relative \
-		--go-grpc_out . --go-grpc_opt paths=source_relative \
-		--grpc-gateway_out . \
+		--go_out ./proto --go_opt paths=source_relative \
+		--go-grpc_out ./proto --go-grpc_opt paths=source_relative \
+		--grpc-gateway_out ./proto \
+		--openapiv2_out ./proto --openapiv2_opt logtostderr=true \
 		--grpc-gateway_opt logtostderr=true \
 		--grpc-gateway_opt paths=source_relative \
 		--grpc-gateway_opt generate_unbound_methods=true \
-		--openapiv2_out . --openapiv2_opt logtostderr=true \
 		$(CURDIR)/$(*).proto
 
 gateway: go.sum
