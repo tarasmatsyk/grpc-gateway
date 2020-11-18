@@ -7,7 +7,7 @@ import (
 	"net"
 	"net/http"
 
-	"gateway/proto"
+	pr "gateway/proto"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 )
@@ -17,10 +17,10 @@ var (
 )
 
 type srv struct {
-	proto.EchoerServer
+	pr.EchoerServer
 }
 
-func (s srv) Echo(ctx context.Context, message *proto.StringMessage) (*proto.StringMessage, error) {
+func (s srv) Echo(ctx context.Context, message *pr.StringMessage) (*pr.StringMessage, error) {
 	return message, nil
 }
 
@@ -30,7 +30,7 @@ func RunGRPC(ctx context.Context, listen string) error {
 		return err
 	}
 	g := grpc.NewServer()
-	proto.RegisterEchoerServer(g, &srv{})
+	pr.RegisterEchoerServer(g, &srv{})
 	return g.Serve(ln)
 }
 
@@ -46,7 +46,7 @@ func RunHTTP() error {
 
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure(), grpc.WithBlock()}
-	err := proto.RegisterEchoerHandlerFromEndpoint(ctx, mux, *grpcServerEndpoint, opts)
+	err := pr.RegisterEchoerHandlerFromEndpoint(ctx, mux, *grpcServerEndpoint, opts)
 	if err != nil {
 		return err
 	}
