@@ -1,6 +1,6 @@
 syntax = "proto3";
-package grpc.gateway.echoer;
-option go_package = "github.com/tarasmatsyk/grpc-gateway/echoer/proto";
+package echoer;
+option go_package = "github.com/tarasmatsyk/grpc-gateway/echoer/proto;echoer";
 import "google/api/annotations.proto";
 
 message StringMessage {
