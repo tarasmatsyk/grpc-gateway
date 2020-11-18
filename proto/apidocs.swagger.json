@@ -55,11 +55,23 @@
     }
   },
   "definitions": {
+    "echoerEnum": {
+      "type": "string",
+      "enum": [
+        "One",
+        "Two",
+        "Tree"
+      ],
+      "default": "One"
+    },
     "echoerStringMessage": {
       "type": "object",
       "properties": {
         "value": {
           "type": "string"
+        },
+        "ver": {
+          "$ref": "#/definitions/echoerEnum"
         }
       }
     },

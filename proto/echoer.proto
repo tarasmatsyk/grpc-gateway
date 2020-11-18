@@ -3,15 +3,22 @@ package echoer;
 option go_package = "github.com/tarasmatsyk/grpc-gateway/echoer/proto;echoer";
 import "google/api/annotations.proto";
 
+enum Enum {
+  One = 0;
+  Two = 1;
+  Tree = 2;
+}
+
 message StringMessage {
   string value = 1;
+  Enum version = 2 [json_name="ver"];;
 }
 
 service Echoer {
   rpc Echo(StringMessage) returns (StringMessage) {
     option (google.api.http) = {
-        post: "/v1/example/echo"
-        body: "*"
+      post: "/v1/example/echo"
+      body: "*"
     };
   }
 }
