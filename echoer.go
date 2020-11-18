@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"golang.org/x/sync/errgroup"
+	"math/rand"
 	"net"
 	"net/http"
 
@@ -29,7 +30,13 @@ func RunGRPC(ctx context.Context, listen string) error {
 	if err != nil {
 		return err
 	}
-	g := grpc.NewServer()
+	g := grpc.NewServer(grpc.UnaryInterceptor(func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {
+		if rand.Intn(10) > 5 {
+			return UnauthorizedInterceptor(ctx, req, info, handler)
+		}
+
+		return handler(ctx, req)
+	}))
 	pr.RegisterEchoerServer(g, &srv{})
 	return g.Serve(ln)
 }
