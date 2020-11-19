@@ -1,6 +1,6 @@
 syntax = "proto3";
 package echoer;
-option go_package = "github.com/tarasmatsyk/grpc-gateway/echoer/proto;echoer";
+option go_package = "github.com/tarasmatsyk/grpc-gateway/proto/echoer;echoer";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
