@@ -1,6 +1,6 @@
 syntax = "proto3";
 package echoer;
-option go_package = "github.com/tarasmatsyk/grpc-gateway/echoer/proto;echoer";
+option go_package = "github.com/tarasmatsyk/grpc-gateway/proto/echoer;echoer";
 import "google/api/annotations.proto";
 
 enum Enum {
